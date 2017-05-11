@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="emp" class="cn.mldn.myspring.di.vo.Emp">
+		<property name="empno" value="7369"/>
+		<property name="ename">
+			<value>SMITH</value>
+		</property>
+		<property name="sal" value="800.0"/>
+		<property name="hiredate" ref="hiredate"/>
+	</bean>
+	<bean id="hiredate" class="java.util.Date"/>
+</beans>
