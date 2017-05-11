@@ -9,7 +9,10 @@
 			<value>SMITH</value>
 		</property>
 		<property name="sal" value="800.0"/>
-		<property name="hiredate" ref="hiredate"/>
+		<property name="dateUtil" ref="dateUtil"></property>
 	</bean>
-	<bean id="hiredate" class="java.util.Date"/>
+	<bean id="dateUtil" class="cn.mldn.myspring.di.util.DateUtil">
+		<constructor-arg index="0" value="yyyy-MM-dd hh:mm:ss"/>
+		<property name="date"><value>1982-10-09 16:34:23</value></property>
+	</bean>
 </beans>

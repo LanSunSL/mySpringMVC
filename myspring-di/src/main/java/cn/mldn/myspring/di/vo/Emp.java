@@ -3,12 +3,19 @@ package cn.mldn.myspring.di.vo;
 import java.io.Serializable;
 import java.util.Date;
 
+import cn.mldn.myspring.di.util.DateUtil;
+
 @SuppressWarnings("serial")
 public class Emp implements Serializable {
 	private Long empno;
 	private String ename;
 	private Double sal;
 	private Date hiredate;
+	private DateUtil dateUtil;
+	public void setDateUtil(DateUtil dateUtil) {
+		this.dateUtil = dateUtil;
+		this.hiredate = this.dateUtil.getFormatDate();
+	}
 	public Long getEmpno() {
 		return empno;
 	}
