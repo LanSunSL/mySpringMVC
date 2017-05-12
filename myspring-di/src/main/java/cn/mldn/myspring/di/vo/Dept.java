@@ -1,12 +1,20 @@
 package cn.mldn.myspring.di.vo;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 @SuppressWarnings("serial")
 public class Dept implements Serializable {
 	private Integer deptno;
 	private String dname ;
 	private Emp mgr;
+	private Emp[] emps;
+	public void setEmps(Emp[] emps) {
+		this.emps = emps;
+	}
+	public Emp[] getEmps() {
+		return emps;
+	}
 	public Integer getDeptno() {
 		return deptno;
 	}
@@ -27,7 +35,8 @@ public class Dept implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Dept [deptno=" + deptno + ", dname=" + dname + ", mgr=" + mgr + "]";
+		return "Dept [deptno=" + deptno + ", dname=" + dname + ", mgr=" + mgr + ", emps=" + Arrays.toString(emps) + "]";
 	}
+	
 	
 }
