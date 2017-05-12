@@ -162,5 +162,6 @@
 		<module>myspring-ioc</module>
     <module>myspring-di</module>
     <module>myspring-context</module>
-  </modules>
+    <module>myspring-resource</module>
+	</modules>
 </project>
