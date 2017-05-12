@@ -11,7 +11,9 @@ import cn.mldn.myspring.context.vo.Dept;
 public class DeptServiceImpl implements IDeptService {
 	@Resource
 	private IDeptDAO deptDAO ;
-	
+	public void setDeptDAO(IDeptDAO deptDAO) {
+		this.deptDAO = deptDAO;
+	}
 	@Override
 	public boolean add(Dept vo) {
 		System.out.println("**********【IDeptService业务层：数据增加】**********");
