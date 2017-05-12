@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="dept1" class="cn.mldn.myspring.di.vo.Dept">
+		<property name="deptno" value="10"/>
+		<property name="dname" value="Accounting"/>
+		<property name="mgr" ref="emp"/>
+	</bean>
+	<bean id="dept2" class="cn.mldn.myspring.di.vo.Dept" p:deptno="20" p:dname="技术部" p:mgr-ref="emp"/>
+	<bean id="dept3" class="cn.mldn.myspring.di.vo.Dept" p:deptno="30" p:dname="HR" p:mgr-ref="emp"/>
+		
+	<bean id="collectionsDI" class="cn.mldn.myspring.di.vo.CollectionsDI">
+		<property name="stringArray">
+			<array>
+				<value>www.mldn.cn</value>
+				<value>www.mldn.cn</value>
+				<value>www.mldnjava.cn</value>
+				<value>www.mldnworld.cn</value>
+			</array>
+		</property>
+		<property name="stringList">
+			<list>
+				<value>www.mldn.cn</value>
+				<value>www.mldn.cn</value>
+				<value>www.mldnjava.cn</value>
+				<value>www.mldnworld.cn</value>
+			</list>
+		</property>
+		<property name="stringSet">
+			<set>
+				<value>www.mldn.cn</value>
+				<value>www.mldn.cn</value>
+				<value>www.mldnjava.cn</value>
+				<value>www.mldnworld.cn</value>
+			</set>
+		</property>
+		<property name="stringMap">
+			<map>
+				<entry key="1" value="www.mldn.cn"/>
+				<entry key="2" value="www.mldn.cn"/>
+				<entry key="3" value="www.mldnjava.cn"/>
+				<entry key="1" value="www.mldnworld.cn"/>
+			</map>
+		</property>
+		<property name="pro">
+			<props>
+				<prop key="mldn">www.mldn.cn</prop>
+				<prop key="java">www.mldnworld.cn</prop>
+			</props>
+		</property>
+		<property name="deptArray">
+			<array>
+				<ref bean="dept1"/>
+				<ref bean="dept2"></ref>
+				<ref bean="dept3"></ref>
+			</array>
+		</property>
+		<property name="deptList">
+			<list>
+				<ref bean="dept1"/>
+				<ref bean="dept2"></ref>
+				<ref bean="dept3"></ref>
+			</list>
+		</property>
+		<property name="deptSet">
+			<set>
+				<ref bean="dept1"/>
+				<ref bean="dept2"></ref>
+				<ref bean="dept3"></ref>
+			</set>
+		</property>
+		<property name="deptMap">
+			<map>
+				<entry key="1" value-ref="dept1"/>
+				<entry key="2" value-ref="dept2"/>
+				<entry key="3" value-ref="dept3"/>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="dept" class="cn.mldn.myspring.di.vo.Dept" p:deptno="10" p:dname="技术部" p:mgr-ref="emp">
+		<property name="emps">
+			<array>
+				<ref bean="emp"/>
+			</array>
+		</property>
+	</bean>
+	
+	<bean id="emp" class="cn.mldn.myspring.di.vo.Emp">
+		<property name="empno" value="7369"/>
+		<property name="ename">
+			<value>SMITH</value>
+		</property>
+		<property name="sal" value="800.0"/>
+		<property name="dateUtil" ref="dateUtil"></property>
+	</bean>
+	<bean id="dateUtil" class="cn.mldn.myspring.di.util.DateUtil">
+		<constructor-arg index="0" value="yyyy-MM-dd hh:mm:ss"/>
+		<property name="date"><value>1982-10-09 16:34:23</value></property>
+	</bean>
+</beans>
