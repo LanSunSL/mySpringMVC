@@ -9,7 +9,7 @@ import cn.mldn.myspring.context.vo.Dept;
 public class Test {
 
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring/spring-*.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring/spring-common.xml");
 		IDeptService deptService = context.getBean("deptServiceImpl", IDeptService.class);
 		Dept vo = new Dept();
 		vo.setDeptno(100);

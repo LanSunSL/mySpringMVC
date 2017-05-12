@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/resources/spring/spring-context.xml</config>
 		<config>src/main/resources/spring/spring-service.xml</config>
+		<config>src/main/resources/spring/spring-common.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
